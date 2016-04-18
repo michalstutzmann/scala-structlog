@@ -12,6 +12,7 @@ lazy val root = (project in file(".")).
     name := "scala-structlog",
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
+    resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % ScalaVersion,
       "org.slf4j" % "slf4j-api" % Slf4jVersion % Optional,
