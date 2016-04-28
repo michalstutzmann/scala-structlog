@@ -10,7 +10,7 @@ import scala.collection.JavaConverters._
 import scala.collection.immutable.ListMap
 
 class KeyValueLayout extends LayoutBase[ILoggingEvent] {
-  private val throwableConverter = new RootCauseFirstThrowableProxyConverter
+  import KeyValueLayout._
 
   override def doLayout(event: ILoggingEvent): String = {
     val time = Instant.ofEpochMilli(event.getTimeStamp).toString
@@ -27,4 +27,9 @@ class KeyValueLayout extends LayoutBase[ILoggingEvent] {
     val stackTraceMap: Map[Key, Value] = if (stacktrace.nonEmpty) ListMap("stack-trace" -> stacktrace) else ListMap.empty[Key, Value]
     (baseMap ++ mdcMap ++ markerMap ++ stackTraceMap).mapValues(_.toString.replace("\t", "\\t")).mkString("\t") + "\n"
   }
+}
+
+object KeyValueLayout {
+  private val throwableConverter = new RootCauseFirstThrowableProxyConverter
+  throwableConverter.start()
 }
