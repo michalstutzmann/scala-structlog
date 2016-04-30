@@ -1,3 +1,6 @@
+import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+import scalariform.formatter.preferences.{DoubleIndentClassDeclaration, PlaceScaladocAsterisksBeneathSecondAsterisk}
+
 val ScalaVersion = "2.11.8"
 val Slf4jVersion = "1.7.18"
 val LogbackVersion = "1.1.6"
@@ -7,7 +10,7 @@ val ConfigVersion = "1.3.0"
 val LogbackHoconVersion = "0.1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).
-  enablePlugins(GitBranchPrompt, ReleasePlugin).
+  enablePlugins(GitBranchPrompt, ReleasePlugin, SbtScalariform).
   settings(
     name := "scala-structlog",
     organization := "com.github.mwegrz",
@@ -56,5 +59,8 @@ lazy val root = (project in file(".")).
           </developer>
         </developers>),
     releaseTagComment := s"Released ${(version in ThisBuild).value}",
-    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}"
+    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
+    ScalariformKeys.preferences := ScalariformKeys.preferences.value
+      .setPreference(DoubleIndentClassDeclaration, true)
+      .setPreference(PlaceScaladocAsterisksBeneathSecondAsterisk, true)
   )

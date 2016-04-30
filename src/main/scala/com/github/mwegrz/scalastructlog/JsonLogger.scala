@@ -12,11 +12,11 @@ class JsonLogger private (override val underlying: JsonAdapter) extends Logger(u
 
   // Info
   def info(message: String, context: JsonObject): Unit = macro infoMessageContext
-  
+
   def info(tags: Tags, message: String, context: JsonObject): Unit = macro infoTagMessageContext
-  
+
   def info[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro infoMessageCauseContext
-  
+
   def info[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A = macro infoTagMessageCauseContext
 
   // Debug
@@ -58,7 +58,7 @@ object JsonLogger {
   def apply[T]()(implicit ct: ClassTag[T]): JsonLogger = new JsonLogger(new Slf4jJsonAdapter(ct.runtimeClass))
 
   private object Macros {
-    type C = blackbox.Context {type PrefixType = JsonLogger}
+    type C = blackbox.Context { type PrefixType = JsonLogger }
 
     // Info
     def infoMessageContext(c: C)(message: c.Expr[String], context: c.Expr[JsonObject]) = {

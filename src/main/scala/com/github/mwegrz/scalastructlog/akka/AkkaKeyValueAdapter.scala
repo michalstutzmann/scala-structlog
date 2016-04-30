@@ -2,7 +2,7 @@ package com.github.mwegrz.scalastructlog.akka
 
 import akka.event.LoggingAdapter
 import com.github.mwegrz.scalastructlog.KeyValueAdapter
-import com.github.mwegrz.scalastructlog.KeyValueLogger.{Key, Value}
+import com.github.mwegrz.scalastructlog.KeyValueLogger.{ Key, Value }
 import com.github.mwegrz.scalastructlog.Logger.Tag
 
 class AkkaKeyValueAdapter(override val l: LoggingAdapter) extends AkkaAdapter(l) with KeyValueAdapter {

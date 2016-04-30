@@ -2,7 +2,7 @@ package com.github.mwegrz.scalastructlog.slf4j
 
 import com.github.mwegrz.scalastructlog.Adapter
 import com.github.mwegrz.scalastructlog.Logger.Tag
-import org.slf4j.{LoggerFactory, MDC, Marker, MarkerFactory}
+import org.slf4j.{ LoggerFactory, MDC, Marker, MarkerFactory }
 
 class Slf4jAdapter[A](c: Class[A]) extends Adapter {
   import Slf4jAdapter._
@@ -34,7 +34,7 @@ class Slf4jAdapter[A](c: Class[A]) extends Adapter {
   override def debug(tags: List[Tag], message: String): Unit = withTags(tags)(l.debug(message))
 
   override def debug(tags: List[Tag], message: String, cause: Throwable): Unit = withTags(tags)(l.debug(message, cause))
-  
+
   // Warning
   override def warning(message: String): Unit = l.warn(message)
 
@@ -43,7 +43,7 @@ class Slf4jAdapter[A](c: Class[A]) extends Adapter {
   override def warning(tags: List[Tag], message: String): Unit = withTags(tags)(l.warn(message))
 
   override def warning(tags: List[Tag], message: String, cause: Throwable): Unit = withTags(tags)(l.warn(message, cause))
-  
+
   // Error
   override def error(message: String): Unit = l.error(message)
 
@@ -58,12 +58,12 @@ object Slf4jAdapter {
   import language.implicitConversions
 
   implicit def tagsToMarker(tags: List[Tag]): Marker = {
-      val markers = tags.map(a => MarkerFactory.getMarker(a.name))
-      val head = markers.head
-      for(m <- markers.drop(1)) {
-        head.add(m)
-      }
-      head
+    val markers = tags.map(a => MarkerFactory.getMarker(a.name))
+    val head = markers.head
+    for (m <- markers.drop(1)) {
+      head.add(m)
+    }
+    head
   }
 
   def withTags[A](tags: List[Tag])(f: => A): A = withFields(Map("tags" -> tags.map(_.name).mkString(",")))(f)

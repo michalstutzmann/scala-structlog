@@ -20,7 +20,7 @@ class AkkaAdapter(val l: LoggingAdapter) extends Adapter {
 
   override def info(tags: List[Tag], message: String): Unit = l.info(message)
 
-  override def info(tags: List[Tag], message: String, cause: Throwable): Unit =  l.info(message, cause)
+  override def info(tags: List[Tag], message: String, cause: Throwable): Unit = l.info(message, cause)
 
   // Debug
   override def debug(message: String): Unit = l.debug(message)
@@ -29,7 +29,7 @@ class AkkaAdapter(val l: LoggingAdapter) extends Adapter {
 
   override def debug(tags: List[Tag], message: String): Unit = l.debug(message)
 
-  override def debug(tags: List[Tag], message: String, cause: Throwable): Unit =  l.debug(message, cause)
+  override def debug(tags: List[Tag], message: String, cause: Throwable): Unit = l.debug(message, cause)
 
   // Warning
   override def warning(message: String): Unit = l.warning(message)
@@ -38,7 +38,7 @@ class AkkaAdapter(val l: LoggingAdapter) extends Adapter {
 
   override def warning(tags: List[Tag], message: String): Unit = l.warning(message)
 
-  override def warning(tags: List[Tag], message: String, cause: Throwable): Unit =  l.warning(message, cause)
+  override def warning(tags: List[Tag], message: String, cause: Throwable): Unit = l.warning(message, cause)
 
   // Error
   override def error(message: String): Unit = l.error(message)
@@ -47,5 +47,5 @@ class AkkaAdapter(val l: LoggingAdapter) extends Adapter {
 
   override def error(tags: List[Tag], message: String): Unit = l.error(message)
 
-  override def error(tags: List[Tag], message: String, cause: Throwable): Unit =  l.error(message, cause)
+  override def error(tags: List[Tag], message: String, cause: Throwable): Unit = l.error(message, cause)
 }

@@ -77,7 +77,7 @@ object KeyValueLogger {
   implicit class Pairs3(val elems: (Pair, Pair, Pair)) extends KeyValuePairs
 
   private object Macros {
-    type C = blackbox.Context {type PrefixType = KeyValueLogger}
+    type C = blackbox.Context { type PrefixType = KeyValueLogger }
 
     // Info
     def infoMessageContext(c: C)(message: c.Expr[String], context: c.Expr[KeyValuePair]*) = {

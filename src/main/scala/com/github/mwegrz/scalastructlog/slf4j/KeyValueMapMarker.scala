@@ -1,7 +1,7 @@
 package com.github.mwegrz.scalastructlog.slf4j
 
 import java.util
-import com.github.mwegrz.scalastructlog.KeyValueLogger.{Key, Value}
+import com.github.mwegrz.scalastructlog.KeyValueLogger.{ Key, Value }
 import org.slf4j.Marker
 
 case class KeyValueMapMarker(value: Map[Key, Value]) extends Marker {

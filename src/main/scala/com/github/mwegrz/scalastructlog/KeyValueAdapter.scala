@@ -1,6 +1,6 @@
 package com.github.mwegrz.scalastructlog
 
-import com.github.mwegrz.scalastructlog.KeyValueLogger.{Key, Value}
+import com.github.mwegrz.scalastructlog.KeyValueLogger.{ Key, Value }
 import com.github.mwegrz.scalastructlog.Logger.Tag
 
 trait KeyValueAdapter extends Adapter {

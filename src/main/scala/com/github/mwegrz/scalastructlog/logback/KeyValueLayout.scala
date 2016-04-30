@@ -4,7 +4,7 @@ import java.time.Instant
 import ch.qos.logback.classic.pattern.RootCauseFirstThrowableProxyConverter
 import ch.qos.logback.classic.spi.ILoggingEvent
 import ch.qos.logback.core.LayoutBase
-import com.github.mwegrz.scalastructlog.KeyValueLogger.{Key, Value}
+import com.github.mwegrz.scalastructlog.KeyValueLogger.{ Key, Value }
 import com.github.mwegrz.scalastructlog.slf4j.KeyValueMapMarker
 import scala.collection.JavaConverters._
 import scala.collection.immutable.ListMap

@@ -71,7 +71,7 @@ object Logger {
   implicit class Tags3(override val elems: (Tag, Tag, Tag)) extends Tags
 
   private object Macros {
-    type C = blackbox.Context {type PrefixType = Logger}
+    type C = blackbox.Context { type PrefixType = Logger }
 
     // Info
     def infoMessage(c: C)(message: c.Expr[String]) = {

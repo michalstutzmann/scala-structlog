@@ -7,7 +7,7 @@ import org.slf4j.Marker
 
 class Slf4jJsonAdapter[A](c: Class[A]) extends Slf4jAdapter(c) with JsonAdapter {
   import Slf4jJsonAdapter._
-  
+
   // Info
   override def info(message: String, context: JsonObject): Unit = l.info(context, message)
 

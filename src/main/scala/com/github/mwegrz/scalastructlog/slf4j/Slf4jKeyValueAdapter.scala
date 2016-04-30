@@ -1,6 +1,6 @@
 package com.github.mwegrz.scalastructlog.slf4j
 
-import com.github.mwegrz.scalastructlog.KeyValueLogger.{Key, Value}
+import com.github.mwegrz.scalastructlog.KeyValueLogger.{ Key, Value }
 import com.github.mwegrz.scalastructlog.KeyValueAdapter
 import com.github.mwegrz.scalastructlog.Logger.Tag
 import org.slf4j.Marker

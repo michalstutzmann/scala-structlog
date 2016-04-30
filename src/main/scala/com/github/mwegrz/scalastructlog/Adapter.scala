@@ -10,7 +10,7 @@ trait Adapter {
   def isWarningEnabled: Boolean
 
   def isErrorEnabled: Boolean
-  
+
   // Info
   def info(message: String): Unit
 
@@ -19,7 +19,7 @@ trait Adapter {
   def info(tags: List[Tag], message: String): Unit
 
   def info(tags: List[Tag], message: String, cause: Throwable): Unit
-  
+
   // Debug
   def debug(message: String): Unit
 
@@ -28,7 +28,7 @@ trait Adapter {
   def debug(tags: List[Tag], message: String): Unit
 
   def debug(tags: List[Tag], message: String, cause: Throwable): Unit
-  
+
   // Warning
   def warning(message: String): Unit
 
@@ -37,7 +37,7 @@ trait Adapter {
   def warning(tags: List[Tag], message: String): Unit
 
   def warning(tags: List[Tag], message: String, cause: Throwable): Unit
-  
+
   // Error
   def error(message: String): Unit
 
