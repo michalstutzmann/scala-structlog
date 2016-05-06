@@ -5,7 +5,7 @@ import com.github.mwegrz.scalastructlog.Logger.Tag
 
 trait KeyValueAdapter extends Adapter {
   // Info
-  def info(message: String, context: Map[Key, Value]): Unit
+  def info(message: String, context: Map[String, Any]): Unit
 
   def info(message: String, cause: Throwable, context: Map[Key, Value]): Unit
 
