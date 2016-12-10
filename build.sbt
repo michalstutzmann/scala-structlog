@@ -1,13 +1,14 @@
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import scalariform.formatter.preferences.{DoubleIndentClassDeclaration, PlaceScaladocAsterisksBeneathSecondAsterisk}
 
-val ScalaVersion = "2.11.8"
-val Slf4jVersion = "1.7.18"
-val LogbackVersion = "1.1.6"
-val AkkaVersion = "2.4.3"
-val Json4sVersion = "3.3.0"
-val ConfigVersion = "1.3.0"
-val LogbackHoconVersion = "0.1.0-SNAPSHOT"
+val ScalaVersion = "2.12.1"
+val CrossScalaVersions = Seq("2.11.8", ScalaVersion)
+val Slf4jVersion = "1.7.21"
+val LogbackVersion = "1.1.7"
+val AkkaVersion = "2.4.14"
+val Json4sVersion = "3.5.0"
+val ConfigVersion = "1.3.1"
+val LogbackHoconVersion = "0.1.0"
 
 lazy val root = (project in file(".")).
   enablePlugins(GitBranchPrompt, ReleasePlugin, SbtScalariform).
@@ -15,6 +16,7 @@ lazy val root = (project in file(".")).
     name := "scala-structlog",
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
+    crossScalaVersions := CrossScalaVersions,
     resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % ScalaVersion,

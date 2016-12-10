@@ -1,7 +1,6 @@
 package com.github.mwegrz.scalastructlog.logback
 
 import java.time.Instant
-
 import ch.qos.logback.classic.pattern.RootCauseFirstThrowableProxyConverter
 import ch.qos.logback.classic.spi.ILoggingEvent
 import ch.qos.logback.core.LayoutBase
@@ -10,7 +9,6 @@ import org.json4s.JObject
 import org.json4s.JsonAST.JField
 import org.json4s.JsonDSL._
 import org.json4s.native.JsonMethods._
-
 import scala.collection.JavaConverters._
 
 class JsonLayout extends LayoutBase[ILoggingEvent] {
