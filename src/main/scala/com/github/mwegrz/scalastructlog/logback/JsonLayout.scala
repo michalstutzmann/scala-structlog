@@ -20,7 +20,6 @@ class JsonLayout extends LayoutBase[ILoggingEvent] {
     val level = event.getLevel.levelStr.toLowerCase
     val logger = event.getLoggerName
     val stacktrace = throwableConverter.convert(event)
-    println(stacktrace)
     val baseJson = ("time" -> time) ~ ("level" -> level) ~ ("logger" -> logger) ~ ("message" -> message)
     val mdcJson = JObject(event.getMDCPropertyMap.asScala.map(a => JField(a._1, a._2)).toList)
     val markerJson = event.getMarker match {

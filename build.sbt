@@ -9,6 +9,7 @@ val AkkaVersion = "2.4.14"
 val Json4sVersion = "3.5.0"
 val ConfigVersion = "1.3.1"
 val LogbackHoconVersion = "0.1.0"
+val ScalaTestVersion = "3.0.1"
 
 lazy val root = (project in file(".")).
   enablePlugins(GitBranchPrompt, ReleasePlugin, SbtScalariform).
@@ -19,13 +20,14 @@ lazy val root = (project in file(".")).
     crossScalaVersions := CrossScalaVersions,
     resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
     libraryDependencies ++= Seq(
-      "org.scala-lang" % "scala-reflect" % ScalaVersion,
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value, // Using `scalaVersion` directly so it cross-compiles correctly
       "org.slf4j" % "slf4j-api" % Slf4jVersion % Optional,
       "ch.qos.logback" % "logback-classic" % LogbackVersion % Optional,
       "com.typesafe.akka" %% "akka-actor" % AkkaVersion % Optional,
       "org.json4s" %% "json4s-native" % Json4sVersion % Optional,
       "com.typesafe" % "config" % ConfigVersion % Test,
-      "com.github.mwegrz" % "logback-hocon" % LogbackHoconVersion % Test
+      "com.github.mwegrz" % "logback-hocon" % LogbackHoconVersion % Test,
+      "org.scalatest" %% "scalatest" % ScalaTestVersion % Test
     ),
     // Publishing
     publishMavenStyle := true,

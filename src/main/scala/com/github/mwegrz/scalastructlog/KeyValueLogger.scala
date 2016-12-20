@@ -20,7 +20,6 @@ class KeyValueLogger private (override val underlying: KeyValueAdapter) extends 
   def info[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A = macro infoTagMessageCauseContext
 
   // Debug
-
   def debug(message: String, context: KeyValuePairs): Unit = macro debugMessageContext
 
   def debug(tags: Tags, message: String, context: KeyValuePairs): Unit = macro debugTagMessageContext
