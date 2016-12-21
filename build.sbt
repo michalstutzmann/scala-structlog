@@ -8,7 +8,7 @@ val LogbackVersion = "1.1.7"
 val AkkaVersion = "2.4.14"
 val Json4sVersion = "3.5.0"
 val ConfigVersion = "1.3.1"
-val LogbackHoconVersion = "0.1.0"
+val LogbackHoconVersion = "0.1.0-SNAPSHOT"
 val ScalaTestVersion = "3.0.1"
 
 lazy val root = (project in file(".")).
