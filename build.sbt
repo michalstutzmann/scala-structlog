@@ -3,10 +3,10 @@ import scalariform.formatter.preferences.{DoubleIndentClassDeclaration, PlaceSca
 
 val ScalaVersion = "2.12.1"
 val CrossScalaVersions = Seq("2.11.8", ScalaVersion)
-val Slf4jVersion = "1.7.21"
-val LogbackVersion = "1.1.7"
-val AkkaVersion = "2.4.14"
-val Json4sVersion = "3.5.0"
+val Slf4jVersion = "1.7.25"
+val LogbackVersion = "1.2.2"
+val AkkaVersion = "2.4.17"
+val Json4sVersion = "3.5.1"
 val ConfigVersion = "1.3.1"
 val LogbackHoconVersion = "0.1.0-SNAPSHOT"
 val ScalaTestVersion = "3.0.1"

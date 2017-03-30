@@ -2,12 +2,12 @@ package com.github.mwegrz.scalastructlog.slf4j
 
 import com.github.mwegrz.scalastructlog.Adapter
 import com.github.mwegrz.scalastructlog.Logger.Tag
-import org.slf4j.{ LoggerFactory, MDC, Marker, MarkerFactory }
+import org.slf4j._
 
 class Slf4jAdapter[A](c: Class[A]) extends Adapter {
   import Slf4jAdapter._
 
-  protected val l = LoggerFactory.getLogger(c)
+  protected val l: Logger = LoggerFactory.getLogger(c)
 
   override def isInfoEnabled: Boolean = l.isInfoEnabled
 
