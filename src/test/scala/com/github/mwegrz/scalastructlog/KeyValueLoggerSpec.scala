@@ -10,7 +10,7 @@ class KeyValueLoggerSpec extends UnitSpec {
       val message = "Test"
       val context = ("a" -> "a", "b" -> "b")
       When("logging")
-      logger.warning(message, context)
+      logger.error(message, new Exception("Error!"), context)
       Then("a valid message should be printed")
     }
   }

@@ -1,11 +1,11 @@
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import scalariform.formatter.preferences.{DoubleIndentClassDeclaration, PlaceScaladocAsterisksBeneathSecondAsterisk}
 
-val ScalaVersion = "2.12.1"
-val CrossScalaVersions = Seq("2.11.8", ScalaVersion)
+val ScalaVersion = "2.12.2"
+val CrossScalaVersions = Seq("2.11.11", ScalaVersion)
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.2"
-val AkkaVersion = "2.4.17"
+val AkkaVersion = "2.5.1"
 val Json4sVersion = "3.5.1"
 val ConfigVersion = "1.3.1"
 val LogbackHoconVersion = "0.1.0-SNAPSHOT"
