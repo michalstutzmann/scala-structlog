@@ -1,19 +1,16 @@
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
-import scalariform.formatter.preferences.{DoubleIndentClassDeclaration, PlaceScaladocAsterisksBeneathSecondAsterisk}
-
 val ScalaVersion = "2.12.2"
 val CrossScalaVersions = Seq("2.11.11", ScalaVersion)
 val Slf4jVersion = "1.7.25"
-val LogbackVersion = "1.2.2"
+val LogbackVersion = "1.2.3"
 val AkkaVersion = "2.5.2"
 val Json4sVersion = "3.5.1"
 val ConfigVersion = "1.3.1"
 val LogbackHoconVersion = "0.1.0-SNAPSHOT"
 val ScalaTestVersion = "3.0.1"
 
-lazy val root = (project in file(".")).
-  enablePlugins(GitBranchPrompt, ReleasePlugin, SbtScalariform).
-  settings(
+lazy val root = (project in file("."))
+  .enablePlugins(ReleasePlugin, ScalafmtPlugin)
+  .settings(
     name := "scala-structlog",
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
@@ -38,12 +35,13 @@ lazy val root = (project in file(".")).
       if (isSnapshot.value)
         Some("snapshots" at nexus + "content/repositories/snapshots")
       else
-        Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+        Some("releases" at nexus + "service/local/staging/deploy/maven2")
     },
     publishArtifact in Test := false,
-    pomIncludeRepository := { _ => false },
-    pomExtra := (
-      <url>http://github.com/mwegrz/scala-structlog</url>
+    pomIncludeRepository := { _ =>
+      false
+    },
+    pomExtra := (<url>http://github.com/mwegrz/scala-structlog</url>
         <licenses>
           <license>
             <name>Apache License 2.0</name>
@@ -63,8 +61,5 @@ lazy val root = (project in file(".")).
           </developer>
         </developers>),
     releaseTagComment := s"Released ${(version in ThisBuild).value}",
-    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
-    ScalariformKeys.preferences := ScalariformKeys.preferences.value
-      .setPreference(DoubleIndentClassDeclaration, true)
-      .setPreference(PlaceScaladocAsterisksBeneathSecondAsterisk, true)
+    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}"
   )
