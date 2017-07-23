@@ -16,7 +16,7 @@ class JsonLayout extends LayoutBase[ILoggingEvent] {
 
   override def doLayout(event: ILoggingEvent): String = {
     val time = Instant.ofEpochMilli(event.getTimeStamp).toString
-    val message = event.getMessage
+    val message = event.getFormattedMessage
     val level = event.getLevel.levelStr.toLowerCase
     val logger = event.getLoggerName
     val stacktrace = throwableConverter.convert(event)

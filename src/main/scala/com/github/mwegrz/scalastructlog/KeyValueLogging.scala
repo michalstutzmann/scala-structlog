@@ -4,4 +4,3 @@ trait KeyValueLogging {
   @transient
   protected lazy val log: KeyValueLogger = KeyValueLogger(getClass)
 }
-

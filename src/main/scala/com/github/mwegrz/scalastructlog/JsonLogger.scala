@@ -17,7 +17,8 @@ class JsonLogger private (override val underlying: JsonAdapter) extends Logger(u
 
   def info[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro infoMessageCauseContext
 
-  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A = macro infoTagMessageCauseContext
+  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro infoTagMessageCauseContext
 
   // Debug
 
@@ -27,7 +28,8 @@ class JsonLogger private (override val underlying: JsonAdapter) extends Logger(u
 
   def debug[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro debugMessageCauseContext
 
-  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A = macro debugTagMessageCauseContext
+  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro debugTagMessageCauseContext
 
   // Warning
   def warning(message: String, context: JsonObject): Unit = macro warningMessageContext
@@ -36,7 +38,8 @@ class JsonLogger private (override val underlying: JsonAdapter) extends Logger(u
 
   def warning[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro warningMessageCauseContext
 
-  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A = macro warningTagMessageCauseContext
+  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro warningTagMessageCauseContext
 
   // Error
   def error(message: String, context: JsonObject): Unit = macro errorMessageContext
@@ -45,7 +48,8 @@ class JsonLogger private (override val underlying: JsonAdapter) extends Logger(u
 
   def error[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro errorMessageCauseContext
 
-  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A = macro errorTagMessageCauseContext
+  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro errorTagMessageCauseContext
 }
 
 object JsonLogger {
@@ -81,7 +85,8 @@ object JsonLogger {
        """
     }
 
-    def infoTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def infoTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($tags.toList, $message, $cause, $context)
@@ -102,7 +107,8 @@ object JsonLogger {
       q"if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $context)"
     }
 
-    def debugMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def debugMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($message, $cause, $context)
@@ -110,7 +116,8 @@ object JsonLogger {
        """
     }
 
-    def debugTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def debugTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $cause, $context)
@@ -131,7 +138,8 @@ object JsonLogger {
       q"if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $context)"
     }
 
-    def warningMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def warningMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($message, $cause, $context)
@@ -139,7 +147,8 @@ object JsonLogger {
        """
     }
 
-    def warningTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def warningTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $cause, $context)
@@ -160,7 +169,8 @@ object JsonLogger {
       q"if ($l.isErrorEnabled) $l.error($tags.toList, $message, $context)"
     }
 
-    def errorMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def errorMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($message, $cause, $context)
@@ -168,7 +178,8 @@ object JsonLogger {
        """
     }
 
-    def errorTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def errorTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($tags.toList, $message, $cause, $context)

@@ -21,7 +21,7 @@ class ActorKeyValueLogging { this: Actor =>
   protected def log: KeyValueLogger = {
     // only used in Actor, i.e. thread safe
     // if (_log eq null) {
-    //TODO: // _log = KeyValueLogger(new AkkaKeyValueAdapter(akka.event.Logging(context.system, this)))
+    _log = KeyValueLogger(new AkkaKeyValueAdapter(akka.event.Logging.withMarker(this)))
     _log
   }
 }

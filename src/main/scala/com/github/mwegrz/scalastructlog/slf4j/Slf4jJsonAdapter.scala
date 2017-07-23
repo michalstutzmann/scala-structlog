@@ -15,7 +15,8 @@ class Slf4jJsonAdapter[A](c: Class[A]) extends Slf4jAdapter(c) with JsonAdapter 
 
   override def info(tags: List[Tag], message: String, context: JsonObject): Unit = l.info(context, message)
 
-  override def info(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit = l.info(context, message, cause)
+  override def info(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit =
+    l.info(context, message, cause)
 
   // Debug
   override def debug(message: String, context: JsonObject): Unit = l.debug(context, message)
@@ -24,7 +25,8 @@ class Slf4jJsonAdapter[A](c: Class[A]) extends Slf4jAdapter(c) with JsonAdapter 
 
   override def debug(tags: List[Tag], message: String, context: JsonObject): Unit = l.debug(context, message)
 
-  override def debug(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit = l.debug(context, message, cause)
+  override def debug(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit =
+    l.debug(context, message, cause)
 
   // Warning
   override def warning(message: String, context: JsonObject): Unit = l.warn(context, message)
@@ -33,7 +35,8 @@ class Slf4jJsonAdapter[A](c: Class[A]) extends Slf4jAdapter(c) with JsonAdapter 
 
   override def warning(tags: List[Tag], message: String, context: JsonObject): Unit = l.warn(context, message)
 
-  override def warning(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit = l.warn(context, message, cause)
+  override def warning(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit =
+    l.warn(context, message, cause)
 
   // Error
   override def error(message: String, context: JsonObject): Unit = l.error(context, message)
@@ -42,7 +45,8 @@ class Slf4jJsonAdapter[A](c: Class[A]) extends Slf4jAdapter(c) with JsonAdapter 
 
   override def error(tags: List[Tag], message: String, context: JsonObject): Unit = l.error(context, message)
 
-  override def error(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit = l.error(context, message, cause)
+  override def error(tags: List[Tag], message: String, cause: Throwable, context: JsonObject): Unit =
+    l.error(context, message, cause)
 }
 
 object Slf4jJsonAdapter {

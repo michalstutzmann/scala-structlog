@@ -33,7 +33,8 @@ class Slf4jAdapter[A](c: Class[A]) extends Adapter {
 
   override def debug(tags: List[Tag], message: String): Unit = withTags(tags)(l.debug(message))
 
-  override def debug(tags: List[Tag], message: String, cause: Throwable): Unit = withTags(tags)(l.debug(message, cause))
+  override def debug(tags: List[Tag], message: String, cause: Throwable): Unit =
+    withTags(tags)(l.debug(message, cause))
 
   // Warning
   override def warning(message: String): Unit = l.warn(message)
@@ -42,7 +43,8 @@ class Slf4jAdapter[A](c: Class[A]) extends Adapter {
 
   override def warning(tags: List[Tag], message: String): Unit = withTags(tags)(l.warn(message))
 
-  override def warning(tags: List[Tag], message: String, cause: Throwable): Unit = withTags(tags)(l.warn(message, cause))
+  override def warning(tags: List[Tag], message: String, cause: Throwable): Unit =
+    withTags(tags)(l.warn(message, cause))
 
   // Error
   override def error(message: String): Unit = l.error(message)
@@ -51,7 +53,8 @@ class Slf4jAdapter[A](c: Class[A]) extends Adapter {
 
   override def error(tags: List[Tag], message: String): Unit = withTags(tags)(l.error(message))
 
-  override def error(tags: List[Tag], message: String, cause: Throwable): Unit = withTags(tags)(l.error(message, cause))
+  override def error(tags: List[Tag], message: String, cause: Throwable): Unit =
+    withTags(tags)(l.error(message, cause))
 }
 
 object Slf4jAdapter {

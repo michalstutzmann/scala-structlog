@@ -2,7 +2,7 @@ val ScalaVersion = "2.12.2"
 val CrossScalaVersions = Seq("2.11.11", ScalaVersion)
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.2"
+val AkkaVersion = "2.5.3"
 val Json4sVersion = "3.5.1"
 val ConfigVersion = "1.3.1"
 val LogbackHoconVersion = "0.1.0-SNAPSHOT"
@@ -61,5 +61,6 @@ lazy val root = (project in file("."))
           </developer>
         </developers>),
     releaseTagComment := s"Released ${(version in ThisBuild).value}",
-    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}"
+    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
+    scalafmtOnCompile := true
   )

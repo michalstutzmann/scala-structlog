@@ -11,48 +11,68 @@ class KeyValueLogger private (override val underlying: KeyValueAdapter) extends 
   import language.experimental.macros
 
   // Info
-  def info(message: String, context: KeyValuePairs): Unit = macro infoMessageContext
+  def info(message: String, context: KeyValuePairs): Unit =
+    macro infoMessageContext
 
-  def info(tags: Tags, message: String, context: KeyValuePairs): Unit = macro infoTagMessageContext
+  def info(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro infoTagMessageContext
 
-  def info[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A = macro infoMessageCauseContext
+  def info[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro infoMessageCauseContext
 
-  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A = macro infoTagMessageCauseContext
+  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro infoTagMessageCauseContext
 
   // Debug
-  def debug(message: String, context: KeyValuePairs): Unit = macro debugMessageContext
+  def debug(message: String, context: KeyValuePairs): Unit =
+    macro debugMessageContext
 
-  def debug(tags: Tags, message: String, context: KeyValuePairs): Unit = macro debugTagMessageContext
+  def debug(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro debugTagMessageContext
 
-  def debug[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A = macro debugMessageCauseContext
+  def debug[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro debugMessageCauseContext
 
-  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A = macro debugTagMessageCauseContext
+  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro debugTagMessageCauseContext
 
   // Warning
-  def warning(message: String, context: KeyValuePairs): Unit = macro warningMessageContext
+  def warning(message: String, context: KeyValuePairs): Unit =
+    macro warningMessageContext
 
-  def warning(tags: Tags, message: String, context: KeyValuePairs): Unit = macro warningTagMessageContext
+  def warning(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro warningTagMessageContext
 
-  def warning[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A = macro warningMessageCauseContext
+  def warning[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro warningMessageCauseContext
 
-  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A = macro warningTagMessageCauseContext
+  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro warningTagMessageCauseContext
 
   // Error
-  def error(message: String, context: KeyValuePairs): Unit = macro errorMessageContext
+  def error(message: String, context: KeyValuePairs): Unit =
+    macro errorMessageContext
 
-  def error(tags: Tags, message: String, context: KeyValuePairs): Unit = macro errorTagMessageContext
+  def error(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro errorTagMessageContext
 
-  def error[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A = macro errorMessageCauseContext
+  def error[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro errorMessageCauseContext
 
-  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A = macro errorTagMessageCauseContext
+  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro errorTagMessageCauseContext
 }
 
 object KeyValueLogger {
   import language.implicitConversions
 
-  def apply[T](c: Class[T]): KeyValueLogger = new KeyValueLogger(new Slf4jKeyValueAdapter(c))
+  def apply[T](a: KeyValueAdapter): KeyValueLogger = new KeyValueLogger(a)
 
-  def apply[T]()(implicit ct: ClassTag[T]): KeyValueLogger = new KeyValueLogger(new Slf4jKeyValueAdapter(ct.runtimeClass))
+  def apply[T](c: Class[T]): KeyValueLogger =
+    new KeyValueLogger(new Slf4jKeyValueAdapter(c))
+
+  def apply[T]()(implicit ct: ClassTag[T]): KeyValueLogger =
+    new KeyValueLogger(new Slf4jKeyValueAdapter(ct.runtimeClass))
 
   type Key = String
   type Value = Any
@@ -62,10 +82,15 @@ object KeyValueLogger {
     val elems: Product
 
     def toMap: Map[Key, Value] =
-      List(elems.productIterator.map(_.asInstanceOf[KeyValuePair]).toList.reverse: _*).toMap
+      List(
+        elems.productIterator
+          .map(_.asInstanceOf[KeyValuePair])
+          .toList
+          .reverse: _*).toMap
   }
 
-  implicit def keyValuePairToKeyValuePairs(pair: KeyValuePair): KeyValuePairs = Tuple1(pair)
+  implicit def keyValuePairToKeyValuePairs(pair: KeyValuePair): KeyValuePairs =
+    Tuple1(pair)
 
   implicit class KeyValuePairs1(val elems: Tuple1[KeyValuePair]) extends KeyValuePairs
 
@@ -73,13 +98,19 @@ object KeyValueLogger {
 
   implicit class KeyValuePairs3(val elems: (KeyValuePair, KeyValuePair, KeyValuePair)) extends KeyValuePairs
 
-  implicit class KeyValuePairs4(val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair)) extends KeyValuePairs
+  implicit class KeyValuePairs4(val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
+      extends KeyValuePairs
 
-  implicit class KeyValuePairs5(val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair)) extends KeyValuePairs
+  implicit class KeyValuePairs5(val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
+      extends KeyValuePairs
 
-  implicit class KeyValuePairs6(val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair)) extends KeyValuePairs
+  implicit class KeyValuePairs6(
+      val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
+      extends KeyValuePairs
 
-  implicit class KeyValuePairs7(val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair)) extends KeyValuePairs
+  implicit class KeyValuePairs7(
+      val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
+      extends KeyValuePairs
 
   private object Macros {
     type C = blackbox.Context { type PrefixType = KeyValueLogger }
@@ -97,7 +128,8 @@ object KeyValueLogger {
       q"if ($l.isInfoEnabled) $l.info($tags.toList, $message, $context.toMap)"
     }
 
-    def infoMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def infoMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($message, $cause, $context.toMap)
@@ -105,7 +137,10 @@ object KeyValueLogger {
        """
     }
 
-    def infoTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def infoTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
+                                         message: c.Expr[String],
+                                         cause: c.Expr[Throwable],
+                                         context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($tags.toList, $message, $cause, $context.toMap)
@@ -126,7 +161,8 @@ object KeyValueLogger {
       q"if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $context.toMap)"
     }
 
-    def debugMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def debugMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($message, $cause, $context.toMap)
@@ -134,7 +170,10 @@ object KeyValueLogger {
        """
     }
 
-    def debugTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def debugTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
+                                          message: c.Expr[String],
+                                          cause: c.Expr[Throwable],
+                                          context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $cause, $context.toMap)
@@ -155,7 +194,8 @@ object KeyValueLogger {
       q"if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $context.toMap)"
     }
 
-    def warningMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def warningMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($message, $cause, $context.toMap)
@@ -163,7 +203,10 @@ object KeyValueLogger {
        """
     }
 
-    def warningTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def warningTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
+                                            message: c.Expr[String],
+                                            cause: c.Expr[Throwable],
+                                            context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $cause, $context.toMap)
@@ -184,7 +227,8 @@ object KeyValueLogger {
       q"if ($l.isErrorEnabled) $l.error($tags.toList, $message, $context.toMap)"
     }
 
-    def errorMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def errorMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($message, $cause, $context.toMap)
@@ -192,7 +236,10 @@ object KeyValueLogger {
        """
     }
 
-    def errorTagMessageCauseContext(c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+    def errorTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
+                                          message: c.Expr[String],
+                                          cause: c.Expr[Throwable],
+                                          context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($tags.toList, $message, $cause, $context.toMap)
