@@ -50,6 +50,7 @@ lazy val root = (project in file("."))
     useGpg := true,
     releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     // Publish settings
+    crossPaths := false,
     publishTo := Some(
       if (isSnapshot.value)
         Opts.resolver.sonatypeSnapshots
