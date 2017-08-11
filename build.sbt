@@ -32,7 +32,6 @@ lazy val root = (project in file("."))
     releaseTagName := { (version in ThisBuild).value },
     releaseTagComment := s"Release version ${(version in ThisBuild).value}",
     releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
-    releaseCrossBuild := true,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
@@ -50,7 +49,8 @@ lazy val root = (project in file("."))
     useGpg := true,
     releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     // Publish settings
-    crossPaths := false,
+    crossPaths := true,
+    autoScalaLibrary := true,
     publishTo := Some(
       if (isSnapshot.value)
         Opts.resolver.sonatypeSnapshots
