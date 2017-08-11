@@ -17,6 +17,7 @@ lazy val root = (project in file("."))
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
     crossScalaVersions := CrossScalaVersions,
+    resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/releases",
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value, // Using `scalaVersion` directly so it cross-compiles correctly
       "org.slf4j" % "slf4j-api" % Slf4jVersion % Optional,
@@ -32,6 +33,7 @@ lazy val root = (project in file("."))
     releaseTagName := { (version in ThisBuild).value },
     releaseTagComment := s"Release version ${(version in ThisBuild).value}",
     releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
+    releaseCrossBuild := true,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
@@ -40,10 +42,10 @@ lazy val root = (project in file("."))
       setReleaseVersion,
       commitReleaseVersion,
       tagRelease,
-      releaseStepCommandAndRemaining("publishSigned"),
+      releaseStepCommandAndRemaining("+publishSigned"),
       setNextVersion,
       commitNextVersion,
-      releaseStepCommandAndRemaining("sonatypeReleaseAll"),
+      releaseStepCommandAndRemaining("+sonatypeReleaseAll"),
       pushChanges
     ),
     useGpg := true,
