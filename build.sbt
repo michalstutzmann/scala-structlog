@@ -1,14 +1,13 @@
 import ReleaseTransformations._
 
-val ScalaVersion = "2.12.3"
-val CrossScalaVersions = Seq("2.11.11", ScalaVersion)
+val ScalaVersion = "2.12.4"
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.4"
-val Json4sVersion = "3.5.1"
-val ConfigVersion = "1.3.1"
-val LogbackHoconVersion = "0.1.3"
-val ScalaTestVersion = "3.0.1"
+val AkkaVersion = "2.5.8"
+val Json4sVersion = "3.5.3"
+val ConfigVersion = "1.3.2"
+val LogbackHoconVersion = "0.1.6"
+val ScalaTestVersion = "3.0.4"
 
 lazy val root = (project in file("."))
   .enablePlugins(ReleasePlugin, ScalafmtPlugin)
@@ -16,7 +15,6 @@ lazy val root = (project in file("."))
     name := "scala-structlog",
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
-    crossScalaVersions := CrossScalaVersions,
     resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/releases",
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value, // Using `scalaVersion` directly so it cross-compiles correctly
@@ -33,7 +31,6 @@ lazy val root = (project in file("."))
     releaseTagName := { (version in ThisBuild).value },
     releaseTagComment := s"Release version ${(version in ThisBuild).value}",
     releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
-    releaseCrossBuild := true,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
@@ -48,10 +45,8 @@ lazy val root = (project in file("."))
       releaseStepCommandAndRemaining("+sonatypeReleaseAll"),
       pushChanges
     ),
-    useGpg := true,
     releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     // Publish settings
-    crossPaths := true,
     autoScalaLibrary := true,
     publishTo := Some(
       if (isSnapshot.value)
@@ -64,7 +59,7 @@ lazy val root = (project in file("."))
     pomIncludeRepository := { _ =>
       false
     },
-    licenses := Seq("Apache License 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")),
+    licenses := Seq("Apache License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")),
     homepage := Some(url("http://github.com/mwegrz/scala-structlog")),
     scmInfo := Some(
       ScmInfo(
