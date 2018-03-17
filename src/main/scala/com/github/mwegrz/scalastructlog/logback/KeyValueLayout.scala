@@ -22,7 +22,7 @@ class KeyValueLayout extends LayoutBase[ILoggingEvent] {
     val mdcMap = event.getMDCPropertyMap.asScala
     val markerMap = event.getMarker match {
       case m: KeyValueMapMarker => m.value
-      case _ => ListMap.empty[Key, Value]
+      case _                    => ListMap.empty[Key, Value]
     }
     val stackTraceMap: Map[Key, Value] =
       if (stacktrace.nonEmpty) ListMap("stack-trace" -> stacktrace) else ListMap.empty[Key, Value]

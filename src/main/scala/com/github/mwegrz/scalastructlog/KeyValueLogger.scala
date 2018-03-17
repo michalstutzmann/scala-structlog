@@ -137,10 +137,8 @@ object KeyValueLogger {
        """
     }
 
-    def infoTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
-                                         message: c.Expr[String],
-                                         cause: c.Expr[Throwable],
-                                         context: c.Expr[KeyValuePairs]) = {
+    def infoTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($tags.toList, $message, $cause, $context.toMap)
@@ -170,10 +168,8 @@ object KeyValueLogger {
        """
     }
 
-    def debugTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
-                                          message: c.Expr[String],
-                                          cause: c.Expr[Throwable],
-                                          context: c.Expr[KeyValuePairs]) = {
+    def debugTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $cause, $context.toMap)
@@ -203,10 +199,8 @@ object KeyValueLogger {
        """
     }
 
-    def warningTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
-                                            message: c.Expr[String],
-                                            cause: c.Expr[Throwable],
-                                            context: c.Expr[KeyValuePairs]) = {
+    def warningTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $cause, $context.toMap)
@@ -236,10 +230,8 @@ object KeyValueLogger {
        """
     }
 
-    def errorTagMessageCauseContext(c: C)(tags: c.Expr[Tags],
-                                          message: c.Expr[String],
-                                          cause: c.Expr[Throwable],
-                                          context: c.Expr[KeyValuePairs]) = {
+    def errorTagMessageCauseContext(
+        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($tags.toList, $message, $cause, $context.toMap)

@@ -77,7 +77,8 @@ object JsonLogger {
       q"if ($l.isInfoEnabled) $l.info($tags.toList, $message, $context)"
     }
 
-    def infoMessageCauseContext(c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+    def infoMessageCauseContext(
+        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($message, $cause, $context)

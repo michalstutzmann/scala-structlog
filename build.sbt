@@ -3,11 +3,11 @@ import ReleaseTransformations._
 val ScalaVersion = "2.12.4"
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.8"
+val AkkaVersion = "2.5.11"
 val Json4sVersion = "3.5.3"
-val ConfigVersion = "1.3.2"
+val ConfigVersion = "1.3.3"
 val LogbackHoconVersion = "0.1.6"
-val ScalaTestVersion = "3.0.4"
+val ScalaTestVersion = "3.0.5"
 
 lazy val root = (project in file("."))
   .enablePlugins(ReleasePlugin, ScalafmtPlugin)

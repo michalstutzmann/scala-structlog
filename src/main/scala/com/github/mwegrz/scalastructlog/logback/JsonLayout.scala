@@ -24,7 +24,7 @@ class JsonLayout extends LayoutBase[ILoggingEvent] {
     val mdcJson = JObject(event.getMDCPropertyMap.asScala.map(a => JField(a._1, a._2)).toList)
     val markerJson = event.getMarker match {
       case m: JsonObjectMarker => m.value
-      case _ => JObject()
+      case _                   => JObject()
     }
     val stackTraceJson: JObject = if (stacktrace.nonEmpty) "stack-trace'" -> stacktrace else JObject()
     compact(render(baseJson.obj ++ mdcJson.obj ++ markerJson.obj ++ stackTraceJson.obj)) + "\n"
