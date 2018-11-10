@@ -1,10 +1,10 @@
 import ReleaseTransformations._
 
-val ScalaVersion = "2.12.4"
+val ScalaVersion = "2.12.7"
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.11"
-val Json4sVersion = "3.5.3"
+val AkkaVersion = "2.5.17"
+val Json4sVersion = "3.6.2"
 val ConfigVersion = "1.3.3"
 val LogbackHoconVersion = "0.1.6"
 val ScalaTestVersion = "3.0.5"

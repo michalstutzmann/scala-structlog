@@ -26,8 +26,8 @@ class JsonLayout extends LayoutBase[ILoggingEvent] {
       case m: JsonObjectMarker => m.value
       case _                   => JObject()
     }
-    val stackTraceJson: JObject = if (stacktrace.nonEmpty) "stack-trace'" -> stacktrace else JObject()
-    compact(render(baseJson.obj ++ mdcJson.obj ++ markerJson.obj ++ stackTraceJson.obj)) + "\n"
+    compact(render(baseJson.obj ++ mdcJson.obj ++ markerJson.obj)) + "\n" + (if (stacktrace.nonEmpty) stacktrace
+                                                                             else "")
   }
 }
 

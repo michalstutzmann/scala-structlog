@@ -24,11 +24,9 @@ class KeyValueLayout extends LayoutBase[ILoggingEvent] {
       case m: KeyValueMapMarker => m.value
       case _                    => ListMap.empty[Key, Value]
     }
-    val stackTraceMap: Map[Key, Value] =
-      if (stacktrace.nonEmpty) ListMap("stack-trace" -> stacktrace) else ListMap.empty[Key, Value]
-    (baseMap ++ mdcMap ++ markerMap ++ stackTraceMap).toList
+    (baseMap ++ mdcMap ++ markerMap).toList
       .map(a => s"${a._1.replace("\t", "\\t")}=${a._2.toString.replace("\t", "\\t").replace("\n", "\\n")}")
-      .mkString("\t") + "\n"
+      .mkString("\t") + "\n" + (if (stacktrace.nonEmpty) stacktrace else "")
   }
 }
 
