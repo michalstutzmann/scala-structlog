@@ -112,6 +112,276 @@ object KeyValueLogger {
       val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
       extends KeyValuePairs
 
+  implicit class KeyValuePairs8(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs9(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs10(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs11(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs12(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs13(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs14(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs15(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs16(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs17(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs18(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs19(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs20(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs21(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
+  implicit class KeyValuePairs22(
+      val elems: (KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair,
+                  KeyValuePair))
+      extends KeyValuePairs
+
   private object Macros {
     type C = blackbox.Context { type PrefixType = KeyValueLogger }
 
