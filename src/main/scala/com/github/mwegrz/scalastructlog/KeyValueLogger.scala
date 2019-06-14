@@ -86,7 +86,8 @@ object KeyValueLogger {
         elems.productIterator
           .map(_.asInstanceOf[KeyValuePair])
           .toList
-          .reverse: _*).toMap
+          .reverse: _*
+      ).toMap
   }
 
   implicit def keyValuePairToKeyValuePairs(pair: KeyValuePair): KeyValuePairs =
@@ -105,282 +106,312 @@ object KeyValueLogger {
       extends KeyValuePairs
 
   implicit class KeyValuePairs6(
-      val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
-      extends KeyValuePairs
+      val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair)
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs7(
-      val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair))
-      extends KeyValuePairs
+      val elems: (KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair, KeyValuePair)
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs8(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs9(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs10(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs11(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs12(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs13(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs14(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs15(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs16(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs17(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs18(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs19(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs20(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs21(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   implicit class KeyValuePairs22(
-      val elems: (KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair,
-                  KeyValuePair))
-      extends KeyValuePairs
+      val elems: (
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair,
+          KeyValuePair
+      )
+  ) extends KeyValuePairs
 
   private object Macros {
     type C = blackbox.Context { type PrefixType = KeyValueLogger }
@@ -399,7 +430,8 @@ object KeyValueLogger {
     }
 
     def infoMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($message, $cause, $context.toMap)
@@ -408,7 +440,8 @@ object KeyValueLogger {
     }
 
     def infoTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($tags.toList, $message, $cause, $context.toMap)
@@ -430,7 +463,8 @@ object KeyValueLogger {
     }
 
     def debugMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($message, $cause, $context.toMap)
@@ -439,7 +473,8 @@ object KeyValueLogger {
     }
 
     def debugTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $cause, $context.toMap)
@@ -461,7 +496,8 @@ object KeyValueLogger {
     }
 
     def warningMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($message, $cause, $context.toMap)
@@ -470,7 +506,8 @@ object KeyValueLogger {
     }
 
     def warningTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $cause, $context.toMap)
@@ -492,7 +529,8 @@ object KeyValueLogger {
     }
 
     def errorMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($message, $cause, $context.toMap)
@@ -501,7 +539,8 @@ object KeyValueLogger {
     }
 
     def errorTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[KeyValuePairs]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($tags.toList, $message, $cause, $context.toMap)

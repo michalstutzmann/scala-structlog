@@ -78,7 +78,8 @@ object JsonLogger {
     }
 
     def infoMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($message, $cause, $context)
@@ -87,7 +88,8 @@ object JsonLogger {
     }
 
     def infoTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isInfoEnabled) $l.info($tags.toList, $message, $cause, $context)
@@ -109,7 +111,8 @@ object JsonLogger {
     }
 
     def debugMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($message, $cause, $context)
@@ -118,7 +121,8 @@ object JsonLogger {
     }
 
     def debugTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isDebugEnabled) $l.debug($tags.toList, $message, $cause, $context)
@@ -140,7 +144,8 @@ object JsonLogger {
     }
 
     def warningMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($message, $cause, $context)
@@ -149,7 +154,8 @@ object JsonLogger {
     }
 
     def warningTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isWarningEnabled) $l.warning($tags.toList, $message, $cause, $context)
@@ -171,7 +177,8 @@ object JsonLogger {
     }
 
     def errorMessageCauseContext(
-        c: C)(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($message, $cause, $context)
@@ -180,7 +187,8 @@ object JsonLogger {
     }
 
     def errorTagMessageCauseContext(
-        c: C)(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
+        c: C
+    )(tags: c.Expr[Tags], message: c.Expr[String], cause: c.Expr[Throwable], context: c.Expr[JsonObject]) = {
       import c.universe._
       val l = q"${c.prefix}.underlying"
       q"""if ($l.isErrorEnabled) $l.error($tags.toList, $message, $cause, $context)
