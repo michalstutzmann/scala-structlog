@@ -49,7 +49,7 @@ lazy val root = (project in file("."))
       releaseStepCommandAndRemaining("+publishSigned"),
       setNextVersion,
       commitNextVersion,
-      releaseStepCommandAndRemaining("+sonatypeReleaseAll"),
+      releaseStepCommandAndRemaining("sonatypeReleaseAll"),
       pushChanges
     ),
     releasePublishArtifactsAction := PgpKeys.publishSigned.value,
