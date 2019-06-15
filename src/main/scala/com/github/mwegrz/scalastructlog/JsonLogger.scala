@@ -5,53 +5,6 @@ import scala.reflect.macros.blackbox
 import Logger.Tags
 import com.github.mwegrz.scalastructlog.slf4j.Slf4jJsonAdapter
 
-class JsonLogger private (override val underlying: JsonAdapter) extends Logger(underlying) {
-  import JsonLogger.JsonObject
-  import JsonLogger.Macros._
-  import language.experimental.macros
-
-  // Info
-  def info(message: String, context: JsonObject): Unit = macro infoMessageContext
-
-  def info(tags: Tags, message: String, context: JsonObject): Unit = macro infoTagMessageContext
-
-  def info[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro infoMessageCauseContext
-
-  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
-    macro infoTagMessageCauseContext
-
-  // Debug
-
-  def debug(message: String, context: JsonObject): Unit = macro debugMessageContext
-
-  def debug(tags: Tags, message: String, context: JsonObject): Unit = macro debugTagMessageContext
-
-  def debug[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro debugMessageCauseContext
-
-  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
-    macro debugTagMessageCauseContext
-
-  // Warning
-  def warning(message: String, context: JsonObject): Unit = macro warningMessageContext
-
-  def warning(tags: Tags, message: String, context: JsonObject): Unit = macro warningTagMessageContext
-
-  def warning[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro warningMessageCauseContext
-
-  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
-    macro warningTagMessageCauseContext
-
-  // Error
-  def error(message: String, context: JsonObject): Unit = macro errorMessageContext
-
-  def error(tags: Tags, message: String, context: JsonObject): Unit = macro errorTagMessageContext
-
-  def error[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro errorMessageCauseContext
-
-  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
-    macro errorTagMessageCauseContext
-}
-
 object JsonLogger {
   import language.implicitConversions
 
@@ -196,4 +149,52 @@ object JsonLogger {
        """
     }
   }
+}
+
+class JsonLogger private (override val underlying: JsonAdapter) extends Logger(underlying) {
+  import JsonLogger.JsonObject
+  import JsonLogger.Macros
+  import language.experimental.macros
+
+  // Info
+  def info(message: String, context: JsonObject): Unit = macro Macros.infoMessageContext
+
+  def info(tags: Tags, message: String, context: JsonObject): Unit = macro Macros.infoTagMessageContext
+
+  def info[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro Macros.infoMessageCauseContext
+
+  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro Macros.infoTagMessageCauseContext
+
+  // Debug
+
+  def debug(message: String, context: JsonObject): Unit = macro Macros.debugMessageContext
+
+  def debug(tags: Tags, message: String, context: JsonObject): Unit = macro Macros.debugTagMessageContext
+
+  def debug[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro Macros.debugMessageCauseContext
+
+  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro Macros.debugTagMessageCauseContext
+
+  // Warning
+  def warning(message: String, context: JsonObject): Unit = macro Macros.warningMessageContext
+
+  def warning(tags: Tags, message: String, context: JsonObject): Unit = macro Macros.warningTagMessageContext
+
+  def warning[A <: Throwable](message: String, cause: A, context: JsonObject): A =
+    macro Macros.warningMessageCauseContext
+
+  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro Macros.warningTagMessageCauseContext
+
+  // Error
+  def error(message: String, context: JsonObject): Unit = macro Macros.errorMessageContext
+
+  def error(tags: Tags, message: String, context: JsonObject): Unit = macro Macros.errorTagMessageContext
+
+  def error[A <: Throwable](message: String, cause: A, context: JsonObject): A = macro Macros.errorMessageCauseContext
+
+  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: JsonObject): A =
+    macro Macros.errorTagMessageCauseContext
 }

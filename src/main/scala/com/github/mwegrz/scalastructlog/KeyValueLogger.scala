@@ -5,64 +5,6 @@ import scala.reflect.macros.blackbox
 import Logger.Tags
 import com.github.mwegrz.scalastructlog.slf4j.Slf4jKeyValueAdapter
 
-class KeyValueLogger private (override val underlying: KeyValueAdapter) extends Logger(underlying) {
-  import KeyValueLogger.KeyValuePairs
-  import KeyValueLogger.Macros._
-  import language.experimental.macros
-
-  // Info
-  def info(message: String, context: KeyValuePairs): Unit =
-    macro infoMessageContext
-
-  def info(tags: Tags, message: String, context: KeyValuePairs): Unit =
-    macro infoTagMessageContext
-
-  def info[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
-    macro infoMessageCauseContext
-
-  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
-    macro infoTagMessageCauseContext
-
-  // Debug
-  def debug(message: String, context: KeyValuePairs): Unit =
-    macro debugMessageContext
-
-  def debug(tags: Tags, message: String, context: KeyValuePairs): Unit =
-    macro debugTagMessageContext
-
-  def debug[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
-    macro debugMessageCauseContext
-
-  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
-    macro debugTagMessageCauseContext
-
-  // Warning
-  def warning(message: String, context: KeyValuePairs): Unit =
-    macro warningMessageContext
-
-  def warning(tags: Tags, message: String, context: KeyValuePairs): Unit =
-    macro warningTagMessageContext
-
-  def warning[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
-    macro warningMessageCauseContext
-
-  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
-    macro warningTagMessageCauseContext
-
-  // Error
-  def error(message: String, context: KeyValuePairs): Unit =
-    macro errorMessageContext
-
-  def error(tags: Tags, message: String, context: KeyValuePairs): Unit =
-    macro errorTagMessageContext
-
-  def error[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
-    macro errorMessageCauseContext
-
-  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
-    macro errorTagMessageCauseContext
-}
-
 object KeyValueLogger {
   import language.implicitConversions
 
@@ -548,4 +490,62 @@ object KeyValueLogger {
        """
     }
   }
+}
+
+class KeyValueLogger private (override val underlying: KeyValueAdapter) extends Logger(underlying) {
+  import KeyValueLogger.KeyValuePairs
+  import KeyValueLogger.Macros
+  import language.experimental.macros
+
+  // Info
+  def info(message: String, context: KeyValuePairs): Unit =
+    macro Macros.infoMessageContext
+
+  def info(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro Macros.infoTagMessageContext
+
+  def info[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.infoMessageCauseContext
+
+  def info[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.infoTagMessageCauseContext
+
+  // Debug
+  def debug(message: String, context: KeyValuePairs): Unit =
+    macro Macros.debugMessageContext
+
+  def debug(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro Macros.debugTagMessageContext
+
+  def debug[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.debugMessageCauseContext
+
+  def debug[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.debugTagMessageCauseContext
+
+  // Warning
+  def warning(message: String, context: KeyValuePairs): Unit =
+    macro Macros.warningMessageContext
+
+  def warning(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro Macros.warningTagMessageContext
+
+  def warning[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.warningMessageCauseContext
+
+  def warning[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.warningTagMessageCauseContext
+
+  // Error
+  def error(message: String, context: KeyValuePairs): Unit =
+    macro Macros.errorMessageContext
+
+  def error(tags: Tags, message: String, context: KeyValuePairs): Unit =
+    macro Macros.errorTagMessageContext
+
+  def error[A <: Throwable](message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.errorMessageCauseContext
+
+  def error[A <: Throwable](tags: Tags, message: String, cause: A, context: KeyValuePairs): A =
+    macro Macros.errorTagMessageCauseContext
 }

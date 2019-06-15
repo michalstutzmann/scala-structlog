@@ -1,20 +1,26 @@
 import ReleaseTransformations._
 
-val ScalaVersion = "2.12.8"
+val ScalaVersion = "2.13.0"
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
 val AkkaVersion = "2.5.23"
-val Json4sVersion = "3.6.2"
+val Json4sVersion = "3.6.6"
 val ConfigVersion = "1.3.4"
 val LogbackHoconVersion = "0.1.7"
-val ScalaTestVersion = "3.0.5"
+val ScalaTestVersion = "3.0.8"
 
 lazy val root = (project in file("."))
   .enablePlugins(ReleasePlugin, ScalafmtPlugin)
   .settings(
     name := "scala-structlog",
     organization := "com.github.mwegrz",
-    scalaVersion := ScalaVersion,
+    crossScalaVersions := Seq(ScalaVersion, "2.12.8"),
+    scalaVersion := crossScalaVersions.value.head,
+    scalacOptions ++=
+      (CrossVersion.partialVersion(scalaVersion.value) match {
+        case Some((2, n)) if n >= 13 => Seq("-Xsource:2.14")
+        case _ => Seq("-Yno-adapted-args", "-deprecation")
+      }),
     resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/releases",
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value, // Using `scalaVersion` directly so it cross-compiles correctly
@@ -28,6 +34,7 @@ lazy val root = (project in file("."))
     ),
     scalafmtOnCompile := true,
     // Release settings
+    releaseCrossBuild := false,
     releaseTagName := { (version in ThisBuild).value },
     releaseTagComment := s"Release version ${(version in ThisBuild).value}",
     releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
@@ -35,7 +42,7 @@ lazy val root = (project in file("."))
       checkSnapshotDependencies,
       inquireVersions,
       runClean,
-      runTest,
+      releaseStepCommandAndRemaining("+test"),
       setReleaseVersion,
       commitReleaseVersion,
       tagRelease,

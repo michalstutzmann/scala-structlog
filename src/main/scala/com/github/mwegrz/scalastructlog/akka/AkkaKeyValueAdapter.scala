@@ -10,9 +10,8 @@ import scala.collection.JavaConverters._
 object AkkaKeyValueAdapter {
   def withMdc(entries: Map[Key, Value])(f: => Unit)(implicit l: DiagnosticMarkerBusLoggingAdapter): Unit = {
     l.setMDC(entries.asJava)
-    () =>
-      f
-      l.clearMDC()
+    f
+    l.clearMDC()
   }
 }
 
