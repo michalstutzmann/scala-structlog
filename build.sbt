@@ -3,8 +3,8 @@ import ReleaseTransformations._
 val ScalaVersion = "2.13.1"
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.24"
-val Json4sVersion = "3.6.6"
+val AkkaVersion = "2.5.25"
+val Json4sVersion = "3.6.7"
 val ConfigVersion = "1.3.4"
 val LogbackHoconVersion = "0.1.7"
 val ScalaTestVersion = "3.0.8"
@@ -15,7 +15,7 @@ lazy val root = (project in file("."))
     name := "scala-structlog",
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
-    crossScalaVersions := Seq(scalaVersion.value, "2.12.9"),
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.10"),
     scalacOptions ++=
       (CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, n)) if n >= 13 => Seq("-Xsource:2.14")
