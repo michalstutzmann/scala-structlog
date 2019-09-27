@@ -1,9 +1,9 @@
 import ReleaseTransformations._
 
-val ScalaVersion = "2.13.0"
+val ScalaVersion = "2.13.1"
 val Slf4jVersion = "1.7.25"
 val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.23"
+val AkkaVersion = "2.5.24"
 val Json4sVersion = "3.6.6"
 val ConfigVersion = "1.3.4"
 val LogbackHoconVersion = "0.1.7"
@@ -14,8 +14,8 @@ lazy val root = (project in file("."))
   .settings(
     name := "scala-structlog",
     organization := "com.github.mwegrz",
-    crossScalaVersions := Seq(ScalaVersion, "2.12.8"),
-    scalaVersion := crossScalaVersions.value.head,
+    scalaVersion := ScalaVersion,
+    crossScalaVersions := Seq(scalaVersion.value, "2.12.9"),
     scalacOptions ++=
       (CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, n)) if n >= 13 => Seq("-Xsource:2.14")
@@ -34,7 +34,7 @@ lazy val root = (project in file("."))
     ),
     scalafmtOnCompile := true,
     // Release settings
-    releaseCrossBuild := false,
+    releaseCrossBuild := true,
     releaseTagName := { (version in ThisBuild).value },
     releaseTagComment := s"Release version ${(version in ThisBuild).value}",
     releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
