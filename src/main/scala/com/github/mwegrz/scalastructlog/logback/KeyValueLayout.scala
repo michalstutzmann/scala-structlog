@@ -27,8 +27,8 @@ class KeyValueLayout extends LayoutBase[ILoggingEvent] {
     (baseMap ++ mdcMap ++ markerMap).toList
       .map {
         case (key, value) =>
-          s"${(if (key.contains(",")) "\"" + key.replace("\"", "\\\"") + "\"" else key).replace("\n", "\\n")}=" +
-            s"${(if (value.toString.contains(",")) "\"" + value.toString.replace("\"", "\\\"") + "\""
+          s"${(if (key.contains(" ")) "\"" + key.replace("\"", "\\\"") + "\"" else key).replace("\n", "\\n")}=" +
+            s"${(if (value.toString.contains(" ")) "\"" + value.toString.replace("\"", "\\\"") + "\""
                  else value.toString).replace("\n", "\\n")}"
       }
       .mkString(" ") + "\n" + (if (stacktrace.nonEmpty) stacktrace else "")
