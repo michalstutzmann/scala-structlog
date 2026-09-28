@@ -25,11 +25,10 @@ class KeyValueLayout extends LayoutBase[ILoggingEvent] {
       case _                    => ListMap.empty[Key, Value]
     }
     (baseMap ++ mdcMap ++ markerMap).toList
-      .map {
-        case (key, value) =>
-          s"${(if (key.contains(" ")) "\"" + key.replace("\"", "\\\"") + "\"" else key).replace("\n", "\\n")}=" +
-            s"${(if (value.toString.contains(" ")) "\"" + value.toString.replace("\"", "\\\"") + "\""
-                 else value.toString).replace("\n", "\\n")}"
+      .map { case (key, value) =>
+        s"${(if (key.contains(" ")) "\"" + key.replace("\"", "\\\"") + "\"" else key).replace("\n", "\\n")}=" +
+          s"${(if (value.toString.contains(" ")) "\"" + value.toString.replace("\"", "\\\"") + "\""
+               else value.toString).replace("\n", "\\n")}"
       }
       .mkString(" ") + "\n" + (if (stacktrace.nonEmpty) stacktrace else "")
   }

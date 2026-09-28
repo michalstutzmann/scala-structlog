@@ -1,27 +1,19 @@
-import ReleaseTransformations._
-
-val ScalaVersion = "2.13.1"
-val Slf4jVersion = "1.7.25"
-val LogbackVersion = "1.2.3"
-val AkkaVersion = "2.5.25"
+val ScalaVersion = "2.13.18"
+val Slf4jVersion = "1.7.36"
+val LogbackVersion = "1.2.13"
+val AkkaVersion = "2.6.21"
 val Json4sVersion = "3.6.7"
-val ConfigVersion = "1.3.4"
-val LogbackHoconVersion = "0.1.7"
+val ConfigVersion = "1.4.9"
+val LogbackHoconVersion = "0.2.0"
 val ScalaTestVersion = "3.0.8"
 
 lazy val root = (project in file("."))
-  .enablePlugins(ReleasePlugin, ScalafmtPlugin)
+  .enablePlugins(ScalafmtPlugin)
   .settings(
     name := "scala-structlog",
     organization := "com.github.mwegrz",
     scalaVersion := ScalaVersion,
-    crossScalaVersions := Seq(scalaVersion.value, "2.12.10"),
-    scalacOptions ++=
-      (CrossVersion.partialVersion(scalaVersion.value) match {
-        case Some((2, n)) if n >= 13 => Seq("-Xsource:2.14")
-        case _ => Seq("-Yno-adapted-args", "-deprecation")
-      }),
-    resolvers += "Sonatype Maven Snapshots" at "https://oss.sonatype.org/content/repositories/releases",
+    scalacOptions ++= Seq("-deprecation"),
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value, // Using `scalaVersion` directly so it cross-compiles correctly
       "org.slf4j" % "slf4j-api" % Slf4jVersion % Optional,
@@ -32,54 +24,30 @@ lazy val root = (project in file("."))
       "com.github.mwegrz" % "logback-hocon" % LogbackHoconVersion % Test,
       "org.scalatest" %% "scalatest" % ScalaTestVersion % Test
     ),
-    scalafmtOnCompile := true,
-    // Release settings
-    releaseCrossBuild := true,
-    releaseTagName := { (version in ThisBuild).value },
-    releaseTagComment := s"Release version ${(version in ThisBuild).value}",
-    releaseCommitMessage := s"Set version to ${(version in ThisBuild).value}",
-    releaseProcess := Seq[ReleaseStep](
-      checkSnapshotDependencies,
-      inquireVersions,
-      runClean,
-      releaseStepCommandAndRemaining("+test"),
-      setReleaseVersion,
-      commitReleaseVersion,
-      tagRelease,
-      releaseStepCommandAndRemaining("+publishSigned"),
-      setNextVersion,
-      commitNextVersion,
-      releaseStepCommandAndRemaining("sonatypeReleaseAll"),
-      pushChanges
-    ),
-    releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     // Publish settings
-    autoScalaLibrary := true,
-    publishTo := Some(
-      if (isSnapshot.value)
-        Opts.resolver.sonatypeSnapshots
-      else
-        Opts.resolver.sonatypeStaging
-    ),
+    publishTo := {
+      if (isSnapshot.value) Some("central-snapshots" at "https://central.sonatype.com/repository/maven-snapshots/")
+      else localStaging.value
+    },
     publishMavenStyle := true,
-    publishArtifact in Test := false,
+    Test / publishArtifact := false,
     pomIncludeRepository := { _ =>
       false
     },
-    licenses := Seq("Apache License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")),
-    homepage := Some(url("http://github.com/mwegrz/scala-structlog")),
+    licenses := Seq("Apache License, Version 2.0" -> uri("https://www.apache.org/licenses/LICENSE-2.0.html")),
+    homepage := Some(uri("https://github.com/michalstutzmann/scala-structlog")),
     scmInfo := Some(
       ScmInfo(
-        url("https://github.com/mwegrz/scala-structlog.git"),
-        "scm:git@github.com:mwegrz/scala-structlog.git"
+        uri("https://github.com/michalstutzmann/scala-structlog"),
+        "scm:git@github.com:michalstutzmann/scala-structlog.git"
       )
     ),
     developers := List(
       Developer(
-        id = "mwegrz",
-        name = "Michał Węgrzyn",
+        id = "michalstutzmann",
+        name = "Michal Stutzmann",
         email = null,
-        url = url("http://github.com/mwegrz")
+        url = uri("https://github.com/michalstutzmann")
       )
     )
   )

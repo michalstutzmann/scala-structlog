@@ -3,9 +3,8 @@ package com.github.mwegrz.scalastructlog.akka
 import akka.actor.Actor
 import com.github.mwegrz.scalastructlog.KeyValueLogger
 
-/**
-  * Mix in ActorKeyValueLogging into your Actor to easily obtain a reference to a key-value logger,
-  * which is available under the name "log".
+/** Mix in ActorKeyValueLogging into your Actor to easily obtain a reference to a key-value logger, which is available
+  * under the name "log".
   *
   * {{{
   * class MyActor extends Actor with ActorKeyValueLogging {
